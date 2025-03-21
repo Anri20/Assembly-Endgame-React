@@ -50,3 +50,19 @@ span.chip {
     border-radius: 5px;
     padding: 2px 4px;
 }
+
+section.word {
+    display: flex;
+    gap: 5px;
+}
+
+span.letter {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    background-color: #323232;
+    border-bottom: 1px solid #F9F4DA;
+}

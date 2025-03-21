@@ -1,6 +1,9 @@
+import { useState } from "react"
 import { languages } from "./languages"
 
 export default function AssemblyEndgame() {
+    const [currentWord, setCurrentWord] = useState("react")
+
     const languageElement = languages.map(lang => {
         const styles = {
             backgroundColor: lang.backgroundColor,
@@ -10,8 +13,20 @@ export default function AssemblyEndgame() {
             <span
                 className="chip"
                 style={styles}
+                key={lang.name}
             >
                 {lang.name}
+            </span>
+        )
+    })
+
+    const letterElement = currentWord.split("").map((letter, index) => {
+        return (
+            <span
+                className="letter"
+                key={index}
+            >
+                {letter.toUpperCase()}
             </span>
         )
     })
@@ -28,6 +43,9 @@ export default function AssemblyEndgame() {
             </section>
             <section className="language-chips">
                 {languageElement}
+            </section>
+            <section className="word">
+                {letterElement}
             </section>
         </main>
     )
