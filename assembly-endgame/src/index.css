@@ -1,11 +1,16 @@
 * {
     box-sizing: border-box;
-    color: #F9F4DA;
 }
 
 body {
     margin: 0;
+    color: #F9F4DA;
     background-color: #282726;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
+}
+
+button {
+    font-family: "Hanken Grotesk", Arial, sans-serif;
 }
 
 main {
@@ -49,6 +54,7 @@ section.language-chips {
 span.chip {
     border-radius: 5px;
     padding: 2px 4px;
+    font-weight: 500;
 }
 
 section.word {
@@ -62,7 +68,37 @@ span.letter {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: 600;
     background-color: #323232;
     border-bottom: 1px solid #F9F4DA;
+}
+
+section.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+section.keyboard button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1E1E1E;
+    background-color: #FCBA29;
+    border-radius: 5px;
+    border: 1px solid #D7D7D7;
+}
+
+button.new-game {
+    width: 300;
+    height: 50;
+    border-radius: 5px;
+    background: #11B5E5;
+    border: 1px solid #D7D7D7;
+    font-size: 20px;
+    font-weight: 600;
 }

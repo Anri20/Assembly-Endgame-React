@@ -31,6 +31,18 @@ export default function AssemblyEndgame() {
         )
     })
 
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    const keyboardElement = alphabet.split("").map(char => {
+        return (
+            <button
+                key={char}
+            >
+                {char}
+            </button>
+        )
+    })
+
     return (
         <main>
             <header>
@@ -47,6 +59,10 @@ export default function AssemblyEndgame() {
             <section className="word">
                 {letterElement}
             </section>
+            <section className="keyboard">
+                {keyboardElement}
+            </section>
+            <button className="new-game">New Game</button>
         </main>
     )
 }
