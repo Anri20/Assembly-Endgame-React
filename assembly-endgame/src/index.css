@@ -6,3 +6,21 @@ body {
     margin: 0;
     background-color: #282726;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header p {
+    color: #8E8E8E;
+}
