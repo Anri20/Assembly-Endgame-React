@@ -24,3 +24,13 @@ header {
 header p {
     color: #8E8E8E;
 }
+
+section.game-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #10A95B;
+    min-width: 25rem;
+    border-radius: 5px;
+}
