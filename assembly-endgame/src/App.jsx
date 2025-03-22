@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { languages } from "./languages"
+import {clsx} from "clsx"
 
 export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState("react")
@@ -35,11 +36,15 @@ export default function AssemblyEndgame() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     const keyboardElement = alphabet.split("").map(char => {
-        
+        const className = clsx({
+            isRight: guessLetter.includes(char) && currentWord.split("").includes(char),
+            isWrong: guessLetter.includes(char) && !currentWord.split("").includes(char),
+        })
         return (
             <button
                 key={char}
                 onClick={() => guess(char)}
+                className={className}
             >
                 {char.toUpperCase()}
             </button>

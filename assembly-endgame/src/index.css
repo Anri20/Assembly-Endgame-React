@@ -93,6 +93,14 @@ section.keyboard button {
     border: 1px solid #D7D7D7;
 }
 
+section.keyboard button.isRight {
+    background-color: #10A95B;
+}
+
+section.keyboard button.isWrong {
+    background-color: #EC5D49;
+}
+
 button.new-game {
     width: 300;
     height: 50;
