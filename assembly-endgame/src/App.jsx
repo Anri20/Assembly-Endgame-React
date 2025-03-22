@@ -14,8 +14,8 @@ export default function AssemblyEndgame() {
         .split("").every(letter => guessedLetter.includes(letter))
     const isGameLost = wrongGuessCount >= (languages.length - 1)
     const isGameOver = isGameWon || isGameLost
-    
-    const lastGuess = guessedLetter[guessedLetter.length-1]
+
+    const lastGuess = guessedLetter[guessedLetter.length - 1]
     const isLastGuessIncorrect = lastGuess && !currentWord.includes(lastGuess)
 
     const languageElement = languages.map((lang, index) => {
@@ -38,13 +38,16 @@ export default function AssemblyEndgame() {
     })
 
     const letterElement = currentWord.split("").map((letter, index) => {
+        const className = clsx("letter", {
+            missedLetter: !guessedLetter.includes(letter),
+        })
         
         return (
             <span
-                className="letter"
+                className={className}
                 key={index}
             >
-                {guessedLetter.includes(letter) ? letter.toUpperCase() : ""}
+                {guessedLetter.includes(letter) ? letter.toUpperCase() : isGameOver && letter.toUpperCase()}
             </span>
         )
     })

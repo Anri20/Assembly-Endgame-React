@@ -107,6 +107,10 @@ span.letter {
     border-bottom: 1px solid #F9F4DA;
 }
 
+span.letter.missedLetter {
+    color: #EC5D49;
+}
+
 section.keyboard {
     display: flex;
     flex-wrap: wrap;
