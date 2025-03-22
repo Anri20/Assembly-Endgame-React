@@ -1,12 +1,19 @@
 import { useState } from "react"
 import { languages } from "./languages"
-import {clsx} from "clsx"
+import { clsx } from "clsx"
 
 export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState("react")
     const [guessLetter, setGuessLetter] = useState([])
 
-    const wrongGuessCount = guessLetter.filter(letter => !currentWord.split("").includes(letter)).length
+    const wrongGuessCount = guessLetter
+        .filter(letter => !currentWord.split("").includes(letter)).length
+
+    const isGameWon = currentWord
+        .split("").every(letter => guessLetter.includes(letter))
+    const isGameLost = wrongGuessCount >= (languages.length - 1)
+    const isGameOver = isGameWon || isGameLost
+    console.log(isGameOver)
 
     const languageElement = languages.map((lang, index) => {
         const styles = {
@@ -15,7 +22,7 @@ export default function AssemblyEndgame() {
         }
 
         const className = clsx("chip", index < wrongGuessCount ? "lost" : "")
-        
+
         return (
             <span
                 className={className}
@@ -45,6 +52,7 @@ export default function AssemblyEndgame() {
             isRight: guessLetter.includes(char) && currentWord.split("").includes(char),
             isWrong: guessLetter.includes(char) && !currentWord.split("").includes(char),
         })
+
         return (
             <button
                 key={char}
