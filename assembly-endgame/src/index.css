@@ -44,6 +44,10 @@ section.game-status {
     border: 2px dashed #323232;
 }
 
+section.game-status.farewell {
+    display: flex;
+}
+
 section.game-status.isWon {
     display: flex;
     background-color: #10A95B;
