@@ -6,14 +6,19 @@ export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState("react")
     const [guessLetter, setGuessLetter] = useState([])
 
-    const languageElement = languages.map(lang => {
+    const wrongGuessCount = guessLetter.filter(letter => !currentWord.split("").includes(letter)).length
+
+    const languageElement = languages.map((lang, index) => {
         const styles = {
             backgroundColor: lang.backgroundColor,
             color: lang.color
         }
+
+        const className = clsx("chip", index < wrongGuessCount ? "lost" : "")
+        
         return (
             <span
-                className="chip"
+                className={className}
                 style={styles}
                 key={lang.name}
             >
