@@ -3,6 +3,7 @@ import { languages } from "./languages"
 
 export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState("react")
+    const [guessLetter, setGuessLetter] = useState([])
 
     const languageElement = languages.map(lang => {
         const styles = {
@@ -26,22 +27,27 @@ export default function AssemblyEndgame() {
                 className="letter"
                 key={index}
             >
-                {letter.toUpperCase()}
+                {guessLetter.includes(letter) ? letter.toUpperCase() : ""}
             </span>
         )
     })
 
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     const keyboardElement = alphabet.split("").map(char => {
         return (
             <button
                 key={char}
+                onClick={() => guess(char)}
             >
-                {char}
+                {char.toUpperCase()}
             </button>
         )
     })
+
+    function guess(char) {
+        setGuessLetter(prev => (!prev.includes(char) ? [...prev, char] : prev))
+    }
 
     return (
         <main>
