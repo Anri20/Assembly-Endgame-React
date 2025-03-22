@@ -34,7 +34,7 @@ header p {
 }
 
 section.game-status {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -42,19 +42,18 @@ section.game-status {
     min-width: 25rem;
     border-radius: 5px;
     border: 2px dashed #323232;
-    opacity: 0;
 }
 
 section.game-status.isWon {
+    display: flex;
     background-color: #10A95B;
     border: none;
-    opacity: 1;
 }
 
 section.game-status.isLost {
+    display: flex;
     background-color: #BA2A2A;
     border: none;
-    opacity: 1;
 }
 
 section.language-chips {
