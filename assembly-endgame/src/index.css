@@ -38,9 +38,23 @@ section.game-status {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #10A95B;
+    background-color: #7A5EA7;
     min-width: 25rem;
     border-radius: 5px;
+    border: 2px dashed #323232;
+    opacity: 0;
+}
+
+section.game-status.isWon {
+    background-color: #10A95B;
+    border: none;
+    opacity: 1;
+}
+
+section.game-status.isLost {
+    background-color: #BA2A2A;
+    border: none;
+    opacity: 1;
 }
 
 section.language-chips {

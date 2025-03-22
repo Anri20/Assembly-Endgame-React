@@ -69,15 +69,43 @@ export default function AssemblyEndgame() {
         setGuessLetter(prev => (!prev.includes(char) ? [...prev, char] : prev))
     }
 
+    function gameStatus() {
+        if (!isGameOver) {
+            return null
+        }
+
+        if (isGameWon) {
+            return (
+                <>
+                    <h2>You win!</h2>
+                    <p>Well done! 🎉</p>
+                </>
+            )
+        }
+
+        if (isGameLost) {
+            return (
+                <>
+                    <h2>Game over!</h2>
+                    <p>You lose! Better start learning Assembly 😭</p>
+                </>
+            )
+        }
+    }
+
     return (
         <main>
             <header>
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
             </header>
-            <section className="game-status">
-                <h2>You win!</h2>
-                <p>Well done! 🎉</p>
+            <section
+                className={clsx("game-status", {
+                    isWon: isGameWon,
+                    isLost: isGameLost,
+                })}
+            >
+                {gameStatus()}
             </section>
             <section className="language-chips">
                 {languageElement}
